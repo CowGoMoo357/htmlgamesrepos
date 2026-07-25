@@ -1,23 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="1200"
-     height="800"
-     viewBox="0 0 1200 800">
+     width="100%"
+     height="100%"
+     viewBox="0 0 1200 800"
+     preserveAspectRatio="xMidYMid meet">
 
+<foreignObject x="0" y="0" width="100%" height="100%">
+<div xmlns="http://www.w3.org/1999/xhtml">
 <style>
+
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
-svg {
-    width: 100vw;
-    height: 100vh;
-    display: block;
-}
 </style>
+</div>
+</foreignObject>
 
 <style>
 #games > g {
@@ -136,13 +137,23 @@ Search games...
 
 <!-- Games -->
 
-<g id="games">
+<clipPath id="gameClip">
+    <rect
+        x="300"
+        y="230"
+        width="850"
+        height="550"/>
+</clipPath>
 
+
+<g id="games"
+   clip-path="url(#gameClip)">
 </g>
 
 
 
-<script><![CDATA[
+<script>
+     <![CDATA[
 
 console.log("Scalio started");
 
@@ -156,22 +167,31 @@ document.getElementById("categories");
 
 let games = [];
 
+let gameOffsetY = 0;
+
 
 
 const JSON_URL =
 "https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json";
 
 
+
 fetch(JSON_URL)
+
 .then(r => r.json())
+
 .then(data => {
+
+    console.log("JSON:", data);
 
     games = data.games;
 
     createCategories();
+
     displayGames(games);
 
 })
+
 .catch(error => {
 
     console.error(
@@ -226,35 +246,12 @@ function createCategories(){
         );
 
 
-        rect.setAttribute(
-            "x",
-            "60"
-        );
-
-        rect.setAttribute(
-            "y",
-            y-30
-        );
-
-        rect.setAttribute(
-            "width",
-            "170"
-        );
-
-        rect.setAttribute(
-            "height",
-            "40"
-        );
-
-        rect.setAttribute(
-            "rx",
-            "20"
-        );
-
-        rect.setAttribute(
-            "fill",
-            "#ffffff15"
-        );
+        rect.setAttribute("x","60");
+        rect.setAttribute("y",y-30);
+        rect.setAttribute("width","170");
+        rect.setAttribute("height","40");
+        rect.setAttribute("rx","20");
+        rect.setAttribute("fill","#ffffff15");
 
 
 
@@ -265,34 +262,14 @@ function createCategories(){
         );
 
 
-        text.setAttribute(
-            "x",
-            "145"
-        );
-
-        text.setAttribute(
-            "y",
-            y
-        );
-
-        text.setAttribute(
-            "fill",
-            "white"
-        );
-
-        text.setAttribute(
-            "text-anchor",
-            "middle"
-        );
-
-        text.setAttribute(
-            "font-size",
-            "16"
-        );
+        text.setAttribute("x","145");
+        text.setAttribute("y",y);
+        text.setAttribute("fill","white");
+        text.setAttribute("text-anchor","middle");
+        text.setAttribute("font-size","16");
 
 
-        text.textContent =
-        cat;
+        text.textContent = cat;
 
 
 
@@ -301,19 +278,31 @@ function createCategories(){
 
 
 
-        button.onclick=()=>{
+        button.onclick = ()=>{
 
-            if(cat==="All")
+
+            gameOffsetY = 0;
+
+
+            if(cat === "All"){
+
                 displayGames(games);
 
-            else
+            }
+
+            else{
+
                 displayGames(
                     games.filter(
                         g=>g.category===cat
                     )
                 );
 
+            }
+
+
         };
+
 
 
         categoryLayer.appendChild(button);
@@ -321,7 +310,10 @@ function createCategories(){
 
     });
 
+
 }
+
+
 
 
 
@@ -331,6 +323,12 @@ function displayGames(list){
 
 
     gamesLayer.replaceChildren();
+
+
+    gamesLayer.setAttribute(
+        "transform",
+        `translate(0 ${gameOffsetY})`
+    );
 
 
 
@@ -350,19 +348,22 @@ function displayGames(list){
         );
 
 
+
+        // 4 columns
+
         let x =
-        330 + 
-        (index%3)*260;
+        330 +
+        (index % 4) * 220;
+
 
 
         let y =
         250 +
-        Math.floor(index/3)*260;
+        Math.floor(index / 4) * 240;
 
 
 
 
-        // Card
 
         let card =
         document.createElementNS(
@@ -371,35 +372,12 @@ function displayGames(list){
         );
 
 
-        card.setAttribute(
-            "x",
-            x
-        );
-
-        card.setAttribute(
-            "y",
-            y
-        );
-
-        card.setAttribute(
-            "width",
-            "230"
-        );
-
-        card.setAttribute(
-            "height",
-            "220"
-        );
-
-        card.setAttribute(
-            "rx",
-            "28"
-        );
-
-        card.setAttribute(
-            "fill",
-            "#ffffff15"
-        );
+        card.setAttribute("x",x);
+        card.setAttribute("y",y);
+        card.setAttribute("width","200");
+        card.setAttribute("height","210");
+        card.setAttribute("rx","28");
+        card.setAttribute("fill","#ffffff15");
 
 
         group.appendChild(card);
@@ -408,8 +386,7 @@ function displayGames(list){
 
 
 
-        // Icon
-
+        // icon
 
         let icon =
         document.createElementNS(
@@ -420,7 +397,7 @@ function displayGames(list){
 
         icon.setAttribute(
             "x",
-            x+75
+            x+60
         );
 
         icon.setAttribute(
@@ -452,8 +429,7 @@ function displayGames(list){
 
 
 
-        // Title
-
+        // title
 
         let title =
         document.createElementNS(
@@ -462,38 +438,15 @@ function displayGames(list){
         );
 
 
-        title.setAttribute(
-            "x",
-            x+115
-        );
-
-        title.setAttribute(
-            "y",
-            y+130
-        );
-
-
-        title.setAttribute(
-            "fill",
-            "white"
-        );
-
-
-        title.setAttribute(
-            "font-size",
-            "18"
-        );
-
-
-        title.setAttribute(
-            "text-anchor",
-            "middle"
-        );
+        title.setAttribute("x",x+100);
+        title.setAttribute("y",y+135);
+        title.setAttribute("fill","white");
+        title.setAttribute("font-size","18");
+        title.setAttribute("text-anchor","middle");
 
 
         title.textContent =
         game.name;
-
 
 
         group.appendChild(title);
@@ -503,8 +456,7 @@ function displayGames(list){
 
 
 
-        // Category
-
+        // category
 
         let category =
         document.createElementNS(
@@ -513,38 +465,15 @@ function displayGames(list){
         );
 
 
-        category.setAttribute(
-            "x",
-            x+115
-        );
-
-        category.setAttribute(
-            "y",
-            y+160
-        );
-
-
-        category.setAttribute(
-            "fill",
-            "#aaa"
-        );
-
-
-        category.setAttribute(
-            "font-size",
-            "14"
-        );
-
-
-        category.setAttribute(
-            "text-anchor",
-            "middle"
-        );
+        category.setAttribute("x",x+100);
+        category.setAttribute("y",y+165);
+        category.setAttribute("fill","#aaa");
+        category.setAttribute("font-size","14");
+        category.setAttribute("text-anchor","middle");
 
 
         category.textContent =
         game.category;
-
 
 
         group.appendChild(category);
@@ -554,8 +483,7 @@ function displayGames(list){
 
 
 
-
-        group.onclick=()=>{
+        group.onclick = ()=>{
 
             launchGame(game);
 
@@ -563,9 +491,7 @@ function displayGames(list){
 
 
 
-        gamesLayer.appendChild(
-            group
-        );
+        gamesLayer.appendChild(group);
 
 
     });
@@ -579,14 +505,68 @@ function displayGames(list){
 
 
 
+function scrollGames(amount){
+
+
+    gameOffsetY += amount;
+
+
+
+    if(gameOffsetY > 0){
+
+        gameOffsetY = 0;
+
+    }
+
+
+
+    // change this if you add more games
+
+    if(gameOffsetY < -3000){
+
+        gameOffsetY = -3000;
+
+    }
+
+
+
+    gamesLayer.setAttribute(
+        "transform",
+        `translate(0 ${gameOffsetY})`
+    );
+
+
+}
+
+
+
+
+
+
+document.addEventListener(
+"wheel",
+(event)=>{
+
+
+    scrollGames(
+        -event.deltaY
+    );
+
+
+});
+
+
+
+
+
+
+
 async function launchGame(game){
 
 
     const html =
     await fetch(game.url)
-    .then(
-        r=>r.text()
-    );
+    .then(r=>r.text());
 
 
 
@@ -598,7 +578,6 @@ async function launchGame(game){
 
     if(old)
         old.remove();
-
 
 
 
@@ -615,30 +594,10 @@ async function launchGame(game){
     );
 
 
-    fo.setAttribute(
-        "x",
-        "300"
-    );
-
-
-    fo.setAttribute(
-        "y",
-        "120"
-    );
-
-
-    fo.setAttribute(
-        "width",
-        "850"
-    );
-
-
-    fo.setAttribute(
-        "height",
-        "650"
-    );
-
-
+    fo.setAttribute("x","300");
+    fo.setAttribute("y","120");
+    fo.setAttribute("width","850");
+    fo.setAttribute("height","550");
 
 
 
@@ -653,23 +612,17 @@ async function launchGame(game){
     div.style.height="100%";
 
 
-    div.innerHTML =
-    html;
-
+    div.innerHTML = html;
 
 
 
     fo.appendChild(div);
 
 
-    document.documentElement
-    .appendChild(fo);
+    document.documentElement.appendChild(fo);
 
 
 
-
-
-    // rerun scripts
 
     div.querySelectorAll("script")
     .forEach(oldScript=>{
@@ -685,9 +638,7 @@ async function launchGame(game){
         oldScript.textContent;
 
 
-        oldScript.replaceWith(
-            script
-        );
+        oldScript.replaceWith(script);
 
 
     });
@@ -697,7 +648,8 @@ async function launchGame(game){
 
 
 
-]]></script>
+]]>
+</script>
 
 
 </svg>
