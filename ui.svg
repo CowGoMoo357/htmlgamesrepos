@@ -153,39 +153,21 @@ fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.j
 
     console.log("JSON:", data);
 
-    alert(
-        "Loaded games: " + data.games.length
-    );
-
     games = data.games;
-
-    displayGames(games);
-
-})
-.catch(err => {
-
-    alert(err);
-
-});
-
-
-    games = data.games;
-
 
     status.textContent =
-    "Loaded " + games.length + " games";
+        "Loaded " + games.length + " games";
 
 
     createCategories();
 
     displayGames(games);
 
-
 })
 .catch(error => {
 
     status.textContent =
-    "ERROR: " + error.message;
+        "ERROR: " + error.message;
 
     console.error(error);
 
