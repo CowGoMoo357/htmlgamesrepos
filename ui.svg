@@ -108,18 +108,6 @@ Search games...
 
 
 
-<text id="status"
-      x="600"
-      y="430"
-      text-anchor="middle"
-      fill="#aaa"
-      font-size="25"
-      font-family="Arial">
-Loading Scalio...
-</text>
-
-
-
 <script>
 <![CDATA[
      
@@ -137,11 +125,6 @@ const categoryLayer =
 document.getElementById("categories");
 
 
-const status =
-document.getElementById("status");
-
-
-
 let games = [];
 
 
@@ -154,8 +137,6 @@ fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.j
 
     games = data.games;
 
-    status.remove()
-
 
     createCategories();
 
@@ -163,9 +144,6 @@ fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.j
 
 })
 .catch(error => {
-
-    status.textContent =
-        "ERROR: " + error.message;
 
     console.error(error);
 
@@ -295,7 +273,38 @@ function displayGames(list){
 
         group.appendChild(rect);
 
+        let icon =
+        let icon =
+        document.createElementNS(ns,"image");
 
+     icon.setAttribute(
+         "x",
+         x+65
+     );
+     
+     icon.setAttribute(
+         "y",
+         y+85
+     );
+     
+     icon.setAttribute(
+         "width",
+         "100"
+     );
+     
+     icon.setAttribute(
+         "height",
+         "60"
+     );
+     
+     
+     icon.setAttribute(
+         "href",
+         "https://raw.githubusercontent.com/CowGoMoo357/games/refs/heads/main/" + game.icon
+     );
+     
+     
+     group.appendChild(icon);
 
         let title =
         document.createElementNS(ns,"text");
@@ -348,14 +357,139 @@ function displayGames(list){
 
 
 
-        group.onclick=()=>{
+        group.onclick = async () => {
 
-            window.open(
-                game.url,
-                "_blank"
+    try {
+
+        const response =
+        await fetch(game.url);
+
+
+        const html =
+        await response.text();
+
+
+        const ns =
+        "http://www.w3.org/2000/svg";
+
+
+        // Remove old game window
+        const old =
+        document.getElementById("gameWindow");
+
+        if(old)
+            old.remove();
+
+
+
+        // Create foreignObject
+        const fo =
+        document.createElementNS(
+            ns,
+            "foreignObject"
+        );
+
+
+        fo.setAttribute(
+            "id",
+            "gameWindow"
+        );
+
+
+        fo.setAttribute(
+            "x",
+            "300"
+        );
+
+        fo.setAttribute(
+            "y",
+            "100"
+        );
+
+        fo.setAttribute(
+            "width",
+            "850"
+        );
+
+        fo.setAttribute(
+            "height",
+            "650"
+        );
+
+
+
+        // Create HTML container
+        const div =
+        document.createElementNS(
+            "http://www.w3.org/1999/xhtml",
+            "div"
+        );
+
+
+        div.style.width="100%";
+        div.style.height="100%";
+
+
+        div.innerHTML = html;
+
+
+
+        fo.appendChild(div);
+
+
+        document.documentElement
+        .appendChild(fo);
+
+
+
+        // Re-run scripts
+        const scripts =
+        div.querySelectorAll("script");
+
+
+        scripts.forEach(oldScript=>{
+
+
+            const newScript =
+            document.createElement("script");
+
+
+            for(
+                const attr of oldScript.attributes
+            ){
+
+                newScript.setAttribute(
+                    attr.name,
+                    attr.value
+                );
+
+            }
+
+
+            newScript.textContent =
+            oldScript.textContent;
+
+
+            oldScript.replaceWith(
+                newScript
             );
 
-        };
+
+        });
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Game failed:",
+            error
+        );
+
+    }
+
+};
 
 
         gamesLayer.appendChild(group);
