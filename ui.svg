@@ -145,37 +145,26 @@ let games = [];
 
 
 
-fetch(JSON_URL)
-.then(response => {
+fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json")
+.then(r => r.json())
+.then(data => {
 
-    console.log("Response:", response);
+    console.log("JSON:", data);
 
-    if (!response.ok) {
-        throw new Error(
-            "HTTP Error " + response.status
-        );
-    }
+    alert(
+        "Loaded games: " + data.games.length
+    );
 
-    return response.text();
+    games = data.games;
+
+    displayGames(games);
 
 })
-.then(text => {
+.catch(err => {
 
-    console.log("RAW JSON:");
-    console.log(text);
+    alert(err);
 
-
-    const data = JSON.parse(text);
-
-
-    console.log("Parsed:");
-    console.log(data);
-
-
-    console.log(
-        "Game count:",
-        data.games.length
-    );
+});
 
 
     games = data.games;
