@@ -1,0 +1,179 @@
+{
+  "name": "Scalio",
+  "version": "1.0",
+  "games": [
+    {
+      "name": "1v1 LOL",
+      "url": "https://cowgomoo357.github.io/games/1v1-lol/"
+    },
+    {
+      "name": "3Dash",
+      "url": "https://cowgomoo357.github.io/games/3dash/"
+    },
+    {
+      "name": "Age of Conflict",
+      "url": "https://cowgomoo357.github.io/games/age-of-conflict/"
+    },
+    {
+      "name": "Apple Worm",
+      "url": "https://cowgomoo357.github.io/games/apple-worm/"
+    },
+    {
+      "name": "Basket Bros",
+      "url": "https://cowgomoo357.github.io/games/basket-bros/"
+    },
+    {
+      "name": "Basketball Legends",
+      "url": "https://cowgomoo357.github.io/games/basketball-legends/"
+    },
+    {
+      "name": "Basket Random",
+      "url": "https://cowgomoo357.github.io/games/basket-random/"
+    },
+    {
+      "name": "Backrooms",
+      "url": "https://cowgomoo357.github.io/games/backrooms/"
+    },
+    {
+      "name": "Bacon May Die",
+      "url": "https://cowgomoo357.github.io/games/bacon-may-die/"
+    },
+    {
+      "name": "Bacon May Die (Beta)",
+      "url": "https://cowgomoo357.github.io/games/bacon-may-die-beta/"
+    },
+    {
+      "name": "Berry's Prison Run",
+      "url": "https://cowgomoo357.github.io/games/berrys-prison-run/"
+    },
+    {
+      "name": "BitLife",
+      "url": "https://cowgomoo357.github.io/games/bitlife/"
+    },
+    {
+      "name": "Blackjack",
+      "url": "https://cowgomoo357.github.io/games/blackjack/"
+    },
+    {
+      "name": "Block Blast",
+      "url": "https://cowgomoo357.github.io/games/block-blast/"
+    },
+    {
+      "name": "Brotato",
+      "url": "https://cowgomoo357.github.io/games/brotato/"
+    },
+    {
+      "name": "Brawl Stars",
+      "url": "https://cowgomoo357.github.io/games/brawl-stars/"
+    },
+    {
+      "name": "Buckshot Roulette",
+      "url": "https://cowgomoo357.github.io/games/buckshot-roulette/"
+    },
+    {
+      "name": "Cornball",
+      "url": "https://cowgomoo357.github.io/games/cornball/"
+    },
+    {
+      "name": "Football Bros",
+      "url": "https://cowgomoo357.github.io/games/football-bros/"
+    },
+    {
+      "name": "FNAF 1",
+      "url": "https://cowgomoo357.github.io/games/fnaf1/"
+    },
+    {
+      "name": "Geometry Dash Lite",
+      "url": "https://cowgomoo357.github.io/games/geometry-dash-lite/"
+    },
+    {
+      "name": "Granny",
+      "url": "https://cowgomoo357.github.io/games/granny/"
+    },
+    {
+      "name": "Granny 2",
+      "url": "https://cowgomoo357.github.io/games/granny-2/"
+    },
+    {
+      "name": "Granny 3",
+      "url": "https://cowgomoo357.github.io/games/granny-3/"
+    },
+    {
+      "name": "Happy Wheels",
+      "url": "https://cowgomoo357.github.io/games/happy-wheels/"
+    },
+    {
+      "name": "House of Hazards",
+      "url": "https://cowgomoo357.github.io/games/house-of-hazards/"
+    },
+    {
+      "name": "Level Devil",
+      "url": "https://cowgomoo357.github.io/games/level-devil/"
+    },
+    {
+      "name": "Monkey Mart",
+      "url": "https://cowgomoo357.github.io/games/monkey-mart/"
+    },
+    {
+      "name": "Moto X3M",
+      "url": "https://cowgomoo357.github.io/games/moto-x3m/"
+    },
+    {
+      "name": "Moto X3M 2",
+      "url": "https://cowgomoo357.github.io/games/moto-x3m-2/"
+    },
+    {
+      "name": "Moto X3M 3",
+      "url": "https://cowgomoo357.github.io/games/moto-x3m-3/"
+    },
+    {
+      "name": "Only Up",
+      "url": "https://cowgomoo357.github.io/games/only-up/"
+    },
+    {
+      "name": "Retro Bowl",
+      "url": "https://cowgomoo357.github.io/games/retro-bowl/"
+    },
+    {
+      "name": "Rocket League",
+      "url": "https://cowgomoo357.github.io/games/rocket-league/"
+    },
+    {
+      "name": "Slope",
+      "url": "https://cowgomoo357.github.io/games/slope/"
+    },
+    {
+      "name": "Slope 2P",
+      "url": "https://cowgomoo357.github.io/games/slope-2p/"
+    },
+    {
+      "name": "Snake 3D",
+      "url": "https://cowgomoo357.github.io/games/snake-3d/"
+    },
+    {
+      "name": "Snow Rider",
+      "url": "https://cowgomoo357.github.io/games/snow-rider/"
+    },
+    {
+      "name": "Soccer Random",
+      "url": "https://cowgomoo357.github.io/games/soccer-random/"
+    },
+    {
+      "name": "Space Waves",
+      "url": "https://cowgomoo357.github.io/games/space-waves/"
+    },
+    {
+      "name": "Stickman Hook",
+      "url": "https://cowgomoo357.github.io/games/stickman-hook/"
+    },
+    {
+      "name": "Temple Run 2",
+      "url": "https://cowgomoo357.github.io/games/temple-run-2/"
+    },
+    {
+      "name": "Wheelie Bike",
+      "url": "https://cowgomoo357.github.io/games/wheelie-bike/"
+    }
+  ]
+}
+
