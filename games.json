@@ -20,203 +20,189 @@
       "category": "Action",
       "description": "Online multiplayer shooting game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/1v1-lol.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/1v1-lol.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/1v1-lol.png"
     },
     {
       "name": "3Dash",
       "category": "Arcade",
-      "description": "Fast rhythm platformer",
+      "description": "Fast paced rhythm platformer",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/3dash.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/3dash.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/3dash.png"
     },
     {
       "name": "Age of Conflict",
       "category": "Simulation",
       "description": "Create and control civilizations",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/age-of-conflict.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/age-of-conflict.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/age-of-conflict.png"
     },
     {
       "name": "Apple Worm",
       "category": "Puzzle",
       "description": "Solve puzzles and reach the apple",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/apple-worm.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/apple-worm.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/apple-worm.png"
     },
     {
       "name": "Basket Bros",
       "category": "Sports",
       "description": "Fast basketball battles",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/basket-bros.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/basket-bros.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/basket-bros.png"
     },
     {
       "name": "Basketball Legends",
       "category": "Sports",
       "description": "Basketball action game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/basketball-legends.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/basketball-legends.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/basketball-legends.png"
     },
     {
       "name": "Basket Random",
       "category": "Sports",
       "description": "Random physics basketball",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/basket-random.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/basket-random.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/basket-random.png"
     },
     {
       "name": "Backrooms",
       "category": "Horror",
       "description": "Explore the endless backrooms",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/backrooms.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/backrooms.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/backrooms.png"
     },
     {
       "name": "Bacon May Die",
       "category": "Action",
       "description": "Fight enemies as Bacon",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/bacon-may-die.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/bacon-may-die.png"
-    },
-    {
-      "name": "Bacon May Die Beta",
-      "category": "Action",
-      "description": "Beta version",
-      "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/bacon-may-die-beta.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/bacon-may-die-beta.png"
-    },
-    {
-      "name": "Berry's Prison Run",
-      "category": "Action",
-      "description": "Escape prison obstacles",
-      "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/berrys-prison-run.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/berrys-prison-run.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/bacon-may-die.png"
     },
     {
       "name": "BitLife",
       "category": "Simulation",
       "description": "Live a virtual life",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/bitlife.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/bitlife.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/bitlife.png"
     },
     {
       "name": "Blackjack",
       "category": "Arcade",
       "description": "Classic card game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/blackjack.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/blackjack.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/blackjack.png"
     },
     {
       "name": "Block Blast",
       "category": "Puzzle",
       "description": "Block puzzle challenge",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/block-blast.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/block-blast.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/block-blast.png"
     },
     {
       "name": "Brotato",
       "category": "Action",
       "description": "Survive waves of enemies",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/brotato.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/brotato.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/brotato.png"
     },
     {
       "name": "Brawl Stars",
       "category": "Action",
       "description": "Arena battle game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/brawl-stars.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/brawl-stars.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/brawl-stars.png"
     },
     {
       "name": "Buckshot Roulette",
       "category": "Horror",
       "description": "High risk roulette game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/buckshot-roulette.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/buckshot-roulette.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/buckshot-roulette.png"
     },
     {
       "name": "Geometry Dash Lite",
       "category": "Arcade",
       "description": "Rhythm based platformer",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/geometry-dash-lite.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/geometry-dash-lite.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/geometry-dash-lite.png"
     },
     {
       "name": "Granny",
       "category": "Horror",
       "description": "Escape Granny's house",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/granny.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/granny.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/granny.png"
     },
     {
       "name": "Happy Wheels",
       "category": "Arcade",
       "description": "Physics obstacle game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/happy-wheels.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/happy-wheels.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/happy-wheels.png"
     },
     {
       "name": "House of Hazards",
       "category": "Arcade",
       "description": "Chaotic multiplayer hazards",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/house-of-hazards.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/house-of-hazards.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/house-of-hazards.png"
     },
     {
       "name": "Level Devil",
       "category": "Puzzle",
       "description": "Impossible platform challenges",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/level-devil.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/level-devil.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/level-devil.png"
     },
     {
       "name": "Monkey Mart",
       "category": "Simulation",
       "description": "Manage your own store",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/monkey-mart.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/monkey-mart.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/monkey-mart.png"
     },
     {
       "name": "Moto X3M",
       "category": "Sports",
       "description": "Extreme motorcycle racing",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/moto-x3m.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/moto-x3m.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/moto-x3m.png"
     },
     {
       "name": "Only Up",
       "category": "Arcade",
       "description": "Climb as high as possible",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/only-up.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/only-up.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/only-up.png"
     },
     {
       "name": "Retro Bowl",
       "category": "Sports",
       "description": "Retro football manager",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/retro-bowl.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/retro-bowl.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/retro-bowl.png"
     },
     {
       "name": "Slope",
       "category": "Arcade",
       "description": "Endless downhill racing",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/slope.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/slope.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/slope.png"
     },
     {
       "name": "Snow Rider",
       "category": "Sports",
       "description": "Snowboarding adventure",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/snow-rider.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/snow-rider.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/snow-rider.png"
     },
     {
       "name": "Snake 3D",
       "category": "Arcade",
       "description": "3D snake game",
       "url": "https://raw.githubusercontent.com/CowGoMoo357/games/main/snake-3d.html",
-      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/icons/snake-3d.png"
+      "icon": "https://raw.githubusercontent.com/CowGoMoo357/games/main/snake-3d.png"
     }
   ]
 }
