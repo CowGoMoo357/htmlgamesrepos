@@ -122,8 +122,7 @@ Loading Scalio...
 
 <script>
 <![CDATA[
-
-alert("Scalio script started");
+     
 console.log("Scalio script started");
 
 const JSON_URL =
@@ -155,8 +154,7 @@ fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.j
 
     games = data.games;
 
-    status.textContent =
-        "Loaded " + games.length + " games";
+    status.remove()
 
 
     createCategories();
