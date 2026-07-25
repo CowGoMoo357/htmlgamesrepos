@@ -1,0 +1,195 @@
+{
+  "launcher": {
+    "name": "Scalio",
+    "version": "1.0",
+    "description": "SVG Powered Game Arcade"
+  },
+
+  "categories": [
+    "Action",
+    "Arcade",
+    "Sports",
+    "Puzzle",
+    "Simulation",
+    "Horror",
+    "Other"
+  ],
+
+  "games": [
+    {
+      "name": "1v1 LOL",
+      "category": "Action",
+      "description": "Online multiplayer shooting game",
+      "url": "1v1lol.html",
+      "icon": "1v1lol.jpeg"
+    },
+    {
+      "name": "3Dash",
+      "category": "Arcade",
+      "description": "Fast paced rhythm platformer",
+      "url": "3dash.html",
+      "icon": "3dash.jpeg"
+    },
+    {
+      "name": "Basket Random",
+      "category": "Sports",
+      "description": "Random physics basketball",
+      "url": "Basket-Random.html",
+      "icon": ""
+    },
+    {
+      "name": "Basket Bros",
+      "category": "Sports",
+      "description": "Fast basketball battles",
+      "url": "BasketBros.html",
+      "icon": "basketbros.jpeg"
+    },
+    {
+      "name": "Basketball Legends",
+      "category": "Sports",
+      "description": "Basketball action game",
+      "url": "basketball-legends.html",
+      "icon": "legends.jpeg"
+    },
+    {
+      "name": "Five Nights at Freddy's 1",
+      "category": "Horror",
+      "description": "Survive the night as a security guard",
+      "url": "Five Nights at Freddy's (1).html",
+      "icon": ""
+    },
+    {
+      "name": "Five Nights at Freddy's 2",
+      "category": "Horror",
+      "description": "Survive the night as a security guard",
+      "url": "Five Nights at Freddy's 2 (1).html",
+      "icon": ""
+    },
+    {
+      "name": "Five Nights at Freddy's 3",
+      "category": "Horror",
+      "description": "Survive the night as a security guard",
+      "url": "Five Nights at Freddy's 3 (1).html",
+      "icon": ""
+    },
+    {
+      "name": "Five Nights at Freddy's 4",
+      "category": "Horror",
+      "description": "Survive the night as a security guard",
+      "url": "Five Nights at Freddy's 4 (1).html",
+      "icon": "fnaf4.jpeg"
+    },
+    {
+      "name": "FNAE",
+      "category": "Horror",
+      "description": "Five Nights at Einstein's",
+      "url": "fnae.html",
+      "icon": ""
+    },
+    {
+      "name": "Bacon May Die",
+      "category": "Action",
+      "description": "Fight enemies as Bacon",
+      "url": "bacon-may-dye.html",
+      "icon": "bacon.jpeg"
+    },
+    {
+      "name": "Bacon May Die Beta",
+      "category": "Action",
+      "description": "Beta version",
+      "url": "Bacon-May-Dye-beta.html",
+      "icon": "bacon.webp"
+    },
+    {
+      "name": "BitLife",
+      "category": "Simulation",
+      "description": "Live a virtual life",
+      "url": "bitlife.html",
+      "icon": ""
+    },
+    {
+      "name": "Black",
+      "category": "Puzzle",
+      "description": "Minimalist puzzle game",
+      "url": "black.html",
+      "icon": "black.jpg"
+    },
+    {
+      "name": "Block Blast",
+      "category": "Puzzle",
+      "description": "Clear lines by blasting blocks",
+      "url": "blockblast.html",
+      "icon": "blockblast.webp"
+    },
+    {
+      "name": "Blooket",
+      "category": "Other",
+      "description": "Launch the Blooket learning game platform",
+      "url": "blooket.html",
+      "icon": ""
+    },
+    {
+      "name": "Blackjack",
+      "category": "Other",
+      "description": "Classic casino card game",
+      "url": "clblackjack.html",
+      "icon": ""
+    },
+    {
+      "name": "Rocket League",
+      "category": "Sports",
+      "description": "2D rocket-powered soccer",
+      "url": "clrocketleague.html",
+      "icon": ""
+    },
+    {
+      "name": "Drift Hunters",
+      "category": "Arcade",
+      "description": "Drift and customize cars",
+      "url": "drifthunters.html",
+      "icon": ""
+    },
+    {
+      "name": "Escape Road",
+      "category": "Arcade",
+      "description": "Dodge traffic and escape",
+      "url": "escaperoad.html",
+      "icon": "escape.jpeg"
+    },
+    {
+      "name": "Escape Road 2",
+      "category": "Arcade",
+      "description": "Dodge traffic and escape, part 2",
+      "url": "escaperoad2.html",
+      "icon": "escape.jpeg"
+    },
+    {
+      "name": "Geometry Dash",
+      "category": "Arcade",
+      "description": "Fast paced rhythm platformer",
+      "url": "geometry-dash.html",
+      "icon": "geometrydash.jpeg"
+    },
+    {
+      "name": "Granny 3",
+      "category": "Horror",
+      "description": "Escape the house, return to school",
+      "url": "granny3.html",
+      "icon": "granny3.png"
+    },
+    {
+      "name": "Only Up",
+      "category": "Arcade",
+      "description": "Climb as high as you can",
+      "url": "onlyupgame.html",
+      "icon": "onlyup.jpeg"
+    },
+    {
+      "name": "Prison Obby",
+      "category": "Action",
+      "description": "Escape the prison obstacle course",
+      "url": "prison-obby.html",
+      "icon": "prison-obby.jpg"
+    }
+  ]
+}
