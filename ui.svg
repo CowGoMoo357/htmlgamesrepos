@@ -123,6 +123,8 @@ Loading Scalio...
 <script>
 <![CDATA[
 
+alert("Scalio script started");
+console.log("Scalio script started");
 
 const JSON_URL =
 "https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/refs/heads/main/games.json";
