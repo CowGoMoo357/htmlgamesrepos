@@ -124,7 +124,9 @@ let games = [];
 
 
 
-fetch("games.json")
+fetch(
+"https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json"
+)
 
 .then(response => response.json())
 
