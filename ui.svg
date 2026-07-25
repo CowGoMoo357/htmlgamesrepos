@@ -1,143 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="100%"
-     height="100%"
+     width="100vw"
+     height="100vh"
      viewBox="0 0 1200 800"
      preserveAspectRatio="xMidYMid meet">
 
-<foreignObject x="0" y="0" width="100%" height="100%">
-<div xmlns="http://www.w3.org/1999/xhtml">
 <style>
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
-html, body {
-    margin:0;
-    padding:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
+text {
+    font-family: Arial, sans-serif;
 }
 
 </style>
-</div>
-</foreignObject>
 
-<style>
-#games > g {
-    animation: appear .35s ease-out;
-}
-
-@keyframes appear {
-    from {
-        opacity:0;
-        transform:scale(.92);
-    }
-
-    to {
-        opacity:1;
-        transform:scale(1);
-    }
-}
-</style>
-     
 <defs>
 
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#050505"/>
-        <stop offset="100%" stop-color="#202024"/>
-    </linearGradient>
+<linearGradient id="bg" x2="1" y2="1">
+    <stop offset="0%" stop-color="#050505"/>
+    <stop offset="100%" stop-color="#202024"/>
+</linearGradient>
 
 
-    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#333338"/>
-        <stop offset="100%" stop-color="#18181b"/>
-    </linearGradient>
-
-
-    <filter id="shadow">
-        <feGaussianBlur stdDeviation="8"/>
-    </filter>
-
-</defs>
-
-
-<!-- Background -->
-
-<rect width="1200"
-      height="800"
-      fill="url(#bg)"/>
-
-
-<!-- Header -->
-
-<text x="60"
-      y="80"
-      fill="white"
-      font-size="52"
-      font-family="Arial"
-      font-weight="700">
-Scalio
-</text>
-
-
-<text x="65"
-      y="115"
-      fill="#999"
-      font-size="20"
-      font-family="Arial">
-SVG Powered Game Arcade
-</text>
-
-
-
-<!-- Sidebar -->
-
-<rect x="40"
-      y="160"
-      width="230"
-      height="580"
-      rx="30"
-      fill="#ffffff10"/>
-
-
-<text x="70"
-      y="210"
-      fill="white"
-      font-size="22"
-      font-family="Arial"
-      font-weight="bold">
-Categories
-</text>
-
-
-<g id="categories">
-
-</g>
-
-
-
-<!-- Search -->
-
-<rect x="320"
-      y="160"
-      width="820"
-      height="55"
-      rx="25"
-      fill="#ffffff15"/>
-
-
-<text id="searchText"
-      x="350"
-      y="195"
-      fill="#aaa"
-      font-size="20"
-      font-family="Arial">
-Search games...
-</text>
-
-
-
-<!-- Games -->
-
-<clipPath id="gameClip">
+<clipPath id="gameArea">
     <rect
         x="300"
         y="230"
@@ -145,61 +33,150 @@ Search games...
         height="550"/>
 </clipPath>
 
+</defs>
+
+
+<rect
+    width="1200"
+    height="800"
+    fill="url(#bg)"/>
+
+
+<text
+    x="60"
+    y="80"
+    fill="white"
+    font-size="52"
+    font-weight="700">
+Scalio
+</text>
+
+
+<text
+    x="65"
+    y="115"
+    fill="#999"
+    font-size="20">
+SVG Powered Game Arcade
+</text>
+
+
+<!-- Categories -->
+
+<rect
+    x="40"
+    y="160"
+    width="230"
+    height="580"
+    rx="30"
+    fill="#ffffff10"/>
+
+
+<text
+    x="70"
+    y="210"
+    fill="white"
+    font-size="22">
+Categories
+</text>
+
+
+<g id="categories"></g>
+
+
+<!-- Games -->
 
 <g id="games"
-   clip-path="url(#gameClip)">
+   clip-path="url(#gameArea)">
 </g>
 
 
-
-<script>
-     <![CDATA[
+<text
+    id="status"
+    x="600"
+    y="430"
+    text-anchor="middle"
+    fill="#aaa"
+    font-size="25">
+Loading Scalio...
+</text>
+<script><![CDATA[
 
 console.log("Scalio started");
-
-
-const gamesLayer =
-document.getElementById("games");
-
-const categoryLayer =
-document.getElementById("categories");
-
-
-let games = [];
-
-let gameOffsetY = 0;
-
 
 
 const JSON_URL =
 "https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json";
 
 
+const gamesLayer =
+document.getElementById("games");
+
+
+const categoryLayer =
+document.getElementById("categories");
+
+
+const status =
+document.getElementById("status");
+
+
+
+let games = [];
+
+let currentGames = [];
+
+let gameOffsetY = 0;
+
+
+
+
 
 fetch(JSON_URL)
 
-.then(r => r.json())
+.then(response => response.json())
 
 .then(data => {
 
-    console.log("JSON:", data);
+
+    console.log(
+        "Loaded games:",
+        data.games.length
+    );
+
 
     games = data.games;
 
+    currentGames = games;
+
+
+    status.remove();
+
+
     createCategories();
 
-    displayGames(games);
+
+    displayGames(
+        games
+    );
+
 
 })
 
-.catch(error => {
 
-    console.error(
-        "Games failed:",
-        error
-    );
+.catch(error=>{
+
+
+    status.textContent =
+    "Games failed: " + error;
+
+
+    console.error(error);
+
 
 });
+
+
 
 
 
@@ -209,25 +186,29 @@ function createCategories(){
 
 
     const categories = [
+
         "All",
+
         ...new Set(
             games.map(
-                g=>g.category
+                game=>game.category
             )
         )
+
     ];
 
 
 
     categories.forEach(
-    (cat,index)=>{
+    (category,index)=>{
 
 
         const ns =
         "http://www.w3.org/2000/svg";
 
 
-        let y =
+
+        const y =
         260 + index * 55;
 
 
@@ -239,6 +220,7 @@ function createCategories(){
         );
 
 
+
         let rect =
         document.createElementNS(
             ns,
@@ -246,12 +228,42 @@ function createCategories(){
         );
 
 
-        rect.setAttribute("x","60");
-        rect.setAttribute("y",y-30);
-        rect.setAttribute("width","170");
-        rect.setAttribute("height","40");
-        rect.setAttribute("rx","20");
-        rect.setAttribute("fill","#ffffff15");
+        rect.setAttribute(
+            "x",
+            "60"
+        );
+
+
+        rect.setAttribute(
+            "y",
+            y-30
+        );
+
+
+        rect.setAttribute(
+            "width",
+            "170"
+        );
+
+
+        rect.setAttribute(
+            "height",
+            "40"
+        );
+
+
+        rect.setAttribute(
+            "rx",
+            "20"
+        );
+
+
+        rect.setAttribute(
+            "fill",
+            "#ffffff15"
+        );
+
+
 
 
 
@@ -262,19 +274,46 @@ function createCategories(){
         );
 
 
-        text.setAttribute("x","145");
-        text.setAttribute("y",y);
-        text.setAttribute("fill","white");
-        text.setAttribute("text-anchor","middle");
-        text.setAttribute("font-size","16");
+        text.setAttribute(
+            "x",
+            "145"
+        );
 
 
-        text.textContent = cat;
+        text.setAttribute(
+            "y",
+            y
+        );
+
+
+        text.setAttribute(
+            "fill",
+            "white"
+        );
+
+
+        text.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+
+        text.setAttribute(
+            "font-size",
+            "16"
+        );
+
+
+        text.textContent =
+        category;
 
 
 
         button.appendChild(rect);
+
         button.appendChild(text);
+
+
 
 
 
@@ -284,19 +323,29 @@ function createCategories(){
             gameOffsetY = 0;
 
 
-            if(cat === "All"){
 
-                displayGames(games);
+            if(category === "All"){
+
+
+                displayGames(
+                    games
+                );
+
 
             }
 
-            else{
+            else {
+
 
                 displayGames(
+
                     games.filter(
-                        g=>g.category===cat
+                        game =>
+                        game.category === category
                     )
+
                 );
+
 
             }
 
@@ -305,7 +354,9 @@ function createCategories(){
 
 
 
-        categoryLayer.appendChild(button);
+        categoryLayer.appendChild(
+            button
+        );
 
 
     });
@@ -322,12 +373,19 @@ function createCategories(){
 function displayGames(list){
 
 
+    currentGames = list;
+
+
     gamesLayer.replaceChildren();
 
 
+
     gamesLayer.setAttribute(
+
         "transform",
+
         `translate(0 ${gameOffsetY})`
+
     );
 
 
@@ -349,17 +407,15 @@ function displayGames(list){
 
 
 
-        // 4 columns
-
         let x =
         330 +
-        (index % 4) * 220;
+        (index % 4) * 210;
 
 
 
         let y =
         250 +
-        Math.floor(index / 4) * 240;
+        Math.floor(index / 4) * 230;
 
 
 
@@ -372,21 +428,49 @@ function displayGames(list){
         );
 
 
-        card.setAttribute("x",x);
-        card.setAttribute("y",y);
-        card.setAttribute("width","200");
-        card.setAttribute("height","210");
-        card.setAttribute("rx","28");
-        card.setAttribute("fill","#ffffff15");
+        card.setAttribute(
+            "x",
+            x
+        );
 
 
-        group.appendChild(card);
+        card.setAttribute(
+            "y",
+            y
+        );
+
+
+        card.setAttribute(
+            "width",
+            "190"
+        );
+
+
+        card.setAttribute(
+            "height",
+            "210"
+        );
+
+
+        card.setAttribute(
+            "rx",
+            "25"
+        );
+
+
+        card.setAttribute(
+            "fill",
+            "#ffffff15"
+        );
+
+
+        group.appendChild(
+            card
+        );
 
 
 
 
-
-        // icon
 
         let icon =
         document.createElementNS(
@@ -397,18 +481,21 @@ function displayGames(list){
 
         icon.setAttribute(
             "x",
-            x+60
+            x+55
         );
+
 
         icon.setAttribute(
             "y",
             y+20
         );
 
+
         icon.setAttribute(
             "width",
             "80"
         );
+
 
         icon.setAttribute(
             "height",
@@ -422,14 +509,13 @@ function displayGames(list){
         );
 
 
-        group.appendChild(icon);
+        group.appendChild(
+            icon
+        );
 
 
 
 
-
-
-        // title
 
         let title =
         document.createElementNS(
@@ -438,46 +524,88 @@ function displayGames(list){
         );
 
 
-        title.setAttribute("x",x+100);
-        title.setAttribute("y",y+135);
-        title.setAttribute("fill","white");
-        title.setAttribute("font-size","18");
-        title.setAttribute("text-anchor","middle");
+        title.setAttribute(
+            "x",
+            x+95
+        );
+
+
+        title.setAttribute(
+            "y",
+            y+135
+        );
+
+
+        title.setAttribute(
+            "fill",
+            "white"
+        );
+
+
+        title.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+
+        title.setAttribute(
+            "font-size",
+            "18"
+        );
 
 
         title.textContent =
         game.name;
 
 
-        group.appendChild(title);
+
+        group.appendChild(
+            title
+        );
 
 
 
 
 
-
-        // category
-
-        let category =
+        let cat =
         document.createElementNS(
             ns,
             "text"
         );
 
 
-        category.setAttribute("x",x+100);
-        category.setAttribute("y",y+165);
-        category.setAttribute("fill","#aaa");
-        category.setAttribute("font-size","14");
-        category.setAttribute("text-anchor","middle");
+        cat.setAttribute(
+            "x",
+            x+95
+        );
 
 
-        category.textContent =
+        cat.setAttribute(
+            "y",
+            y+165
+        );
+
+
+        cat.setAttribute(
+            "fill",
+            "#aaa"
+        );
+
+
+        cat.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+
+        cat.textContent =
         game.category;
 
 
-        group.appendChild(category);
 
+        group.appendChild(
+            cat
+        );
 
 
 
@@ -485,20 +613,23 @@ function displayGames(list){
 
         group.onclick = ()=>{
 
-            launchGame(game);
+            launchGame(
+                game
+            );
 
         };
 
 
 
-        gamesLayer.appendChild(group);
+        gamesLayer.appendChild(
+            group
+        );
 
 
     });
 
 
 }
-
 
 
 
@@ -512,27 +643,32 @@ function scrollGames(amount){
 
 
 
-    if(gameOffsetY > 0){
+    let maxScroll =
+    -(Math.ceil(
+        currentGames.length / 4
+    ) * 230 - 520);
+
+
+
+    if(gameOffsetY > 0)
 
         gameOffsetY = 0;
 
-    }
 
 
+    if(gameOffsetY < maxScroll)
 
-    // change this if you add more games
+        gameOffsetY = maxScroll;
 
-    if(gameOffsetY < -3000){
-
-        gameOffsetY = -3000;
-
-    }
 
 
 
     gamesLayer.setAttribute(
+
         "transform",
+
         `translate(0 ${gameOffsetY})`
+
     );
 
 
@@ -543,9 +679,14 @@ function scrollGames(amount){
 
 
 
-document.addEventListener(
+document.documentElement.addEventListener(
+
 "wheel",
+
 (event)=>{
+
+
+    event.preventDefault();
 
 
     scrollGames(
@@ -553,10 +694,13 @@ document.addEventListener(
     );
 
 
-});
+},
 
+{
+    passive:false
+}
 
-
+);
 
 
 
@@ -564,26 +708,45 @@ document.addEventListener(
 async function launchGame(game){
 
 
-    const html =
-    await fetch(game.url)
-    .then(r=>r.text());
+    console.log(
+        "Launching:",
+        game.name
+    );
 
 
 
-    const old =
+    const html = await fetch(
+        game.url
+    )
+    .then(
+        response => response.text()
+    );
+
+
+
+    const oldWindow =
     document.getElementById(
         "gameWindow"
     );
 
 
-    if(old)
-        old.remove();
+    if(oldWindow){
+
+        oldWindow.remove();
+
+    }
+
+
+
+
+    const ns =
+    "http://www.w3.org/2000/svg";
 
 
 
     const fo =
     document.createElementNS(
-        "http://www.w3.org/2000/svg",
+        ns,
         "foreignObject"
     );
 
@@ -594,10 +757,28 @@ async function launchGame(game){
     );
 
 
-    fo.setAttribute("x","300");
-    fo.setAttribute("y","120");
-    fo.setAttribute("width","850");
-    fo.setAttribute("height","550");
+    fo.setAttribute(
+        "x",
+        "300"
+    );
+
+
+    fo.setAttribute(
+        "y",
+        "120"
+    );
+
+
+    fo.setAttribute(
+        "width",
+        "850"
+    );
+
+
+    fo.setAttribute(
+        "height",
+        "550"
+    );
 
 
 
@@ -608,37 +789,69 @@ async function launchGame(game){
     );
 
 
-    div.style.width="100%";
-    div.style.height="100%";
+    div.style.width =
+    "100%";
 
 
-    div.innerHTML = html;
+    div.style.height =
+    "100%";
 
 
-
-    fo.appendChild(div);
-
-
-    document.documentElement.appendChild(fo);
-
+    div.style.background =
+    "#000";
 
 
 
-    div.querySelectorAll("script")
+    div.innerHTML =
+    html;
+
+
+
+    fo.appendChild(
+        div
+    );
+
+
+    document.documentElement.appendChild(
+        fo
+    );
+
+
+
+    /*
+       Re-run scripts inside games
+    */
+
+    div.querySelectorAll(
+        "script"
+    )
     .forEach(oldScript=>{
 
 
-        let script =
+        const newScript =
         document.createElement(
             "script"
         );
 
 
-        script.textContent =
-        oldScript.textContent;
+        if(oldScript.src){
+
+            newScript.src =
+            oldScript.src;
+
+        }
+
+        else {
+
+            newScript.textContent =
+            oldScript.textContent;
+
+        }
 
 
-        oldScript.replaceWith(script);
+        oldScript.replaceWith(
+            newScript
+        );
 
 
     });
@@ -648,8 +861,7 @@ async function launchGame(game){
 
 
 
-]]>
-</script>
+]]></script>
 
 
 </svg>
