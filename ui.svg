@@ -124,22 +124,20 @@ let games = [];
 
 
 
-fetch(
-"https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json"
-)
+const JSON_URL =
+"https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json";
 
-.then(response => response.json())
 
+fetch(JSON_URL)
+.then(r => r.json())
 .then(data => {
 
     games = data.games;
 
     createCategories();
-
     displayGames(games);
 
 })
-
 .catch(error => {
 
     console.error(
