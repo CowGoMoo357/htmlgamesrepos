@@ -1,29 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:xhtml="http://www.w3.org/1999/xhtml"
-     viewBox="0 0 1200 800"
-     width="100%"
-     height="100%">
-<foreignObject x="50" y="170" width="1100" height="600">
-<xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-<h1 style="color:white">
-TEST WORKS
-</h1>
-
-</xhtml:div>
-</foreignObject>
+     width="1200"
+     height="800"
+     viewBox="0 0 1200 800">
 
 <defs>
 
-    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#050505"/>
-        <stop offset="100%" stop-color="#1c1c1e"/>
+        <stop offset="100%" stop-color="#202024"/>
     </linearGradient>
 
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="100%" stop-color="#b5b5b5"/>
+
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#333338"/>
+        <stop offset="100%" stop-color="#18181b"/>
     </linearGradient>
+
 
     <filter id="shadow">
         <feGaussianBlur stdDeviation="8"/>
@@ -36,541 +28,232 @@ TEST WORKS
 
 <rect width="1200"
       height="800"
-      fill="url(#background)"/>
+      fill="url(#bg)"/>
 
 
 <!-- Header -->
 
 <text x="60"
-      y="90"
+      y="80"
       fill="white"
-      font-family="Arial, Helvetica, sans-serif"
       font-size="52"
+      font-family="Arial"
       font-weight="700">
-    Scalio
+Scalio
 </text>
 
 
 <text x="65"
-      y="130"
-      fill="#aaaaaa"
-      font-family="Arial"
-      font-size="20">
-    SVG Powered Game Arcade
+      y="115"
+      fill="#999"
+      font-size="20"
+      font-family="Arial">
+SVG Powered Game Arcade
 </text>
 
 
-<!-- Search and UI -->
 
-<foreignObject x="50"
-               y="170"
-               width="1100"
-               height="600">
+<!-- Sidebar -->
 
-<xhtml:div id="app"
-style="width:100%;
-height:100%;
-font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial;
-color:white;">
+<rect x="40"
+      y="160"
+      width="230"
+      height="580"
+      rx="30"
+      fill="#ffffff10"/>
 
 
-<style>
+<text x="70"
+      y="210"
+      fill="white"
+      font-size="22"
+      font-family="Arial"
+      font-weight="bold">
+Categories
+</text>
 
-body {
-    margin:0;
-}
 
+<g id="categories">
 
-#toolbar {
+</g>
 
-    display:flex;
-    gap:20px;
-    align-items:center;
 
-}
 
+<!-- Search -->
 
-#search {
+<rect x="320"
+      y="160"
+      width="820"
+      height="55"
+      rx="25"
+      fill="#ffffff15"/>
 
-    flex:1;
 
-    background:
-    rgba(255,255,255,0.12);
+<text id="searchText"
+      x="350"
+      y="195"
+      fill="#aaa"
+      font-size="20"
+      font-family="Arial">
+Search games...
+</text>
 
-    border:none;
 
-    outline:none;
 
-    color:white;
+<!-- Games -->
 
-    padding:16px;
+<g id="games">
 
-    border-radius:20px;
+</g>
 
-    font-size:18px;
 
-    backdrop-filter:blur(20px);
 
-}
-
-
-#categories {
-
-    margin-top:20px;
-
-    display:flex;
-
-    gap:10px;
-
-    flex-wrap:wrap;
-
-}
-
-
-.category {
-
-    background:
-    rgba(255,255,255,0.12);
-
-    border:none;
-
-    color:white;
-
-    padding:10px 18px;
-
-    border-radius:20px;
-
-    cursor:pointer;
-
-    transition:.2s;
-
-}
-
-
-.category:hover {
-
-    background:
-    rgba(255,255,255,0.25);
-
-}
-
-
-.category.active {
-
-    background:white;
-
-    color:black;
-
-}
-
-
-#games {
-
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fill,minmax(220px,1fr));
-
-    gap:20px;
-
-}
-
-
-.card {
-
-    background:
-    rgba(255,255,255,0.10);
-
-    border-radius:28px;
-
-    padding:20px;
-
-    min-height:260px;
-
-    backdrop-filter:
-    blur(25px);
-
-    box-shadow:
-    0 15px 40px
-    rgba(0,0,0,.3);
-
-    transition:
-    transform .2s;
-
-}
-
-
-.card:hover {
-
-    transform:
-    translateY(-8px);
-
-}
-
-
-.card img {
-
-    width:100px;
-
-    height:100px;
-
-    object-fit:cover;
-
-    border-radius:22px;
-
-}
-
-
-.card h2 {
-
-    margin-top:15px;
-
-    font-size:22px;
-
-}
-
-
-.card p {
-
-    color:#bbbbbb;
-
-    height:40px;
-
-}
-
-
-.play {
-
-    margin-top:15px;
-
-    width:100%;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:18px;
-
-    background:white;
-
-    color:black;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-}
-
-
-.play:hover {
-
-    background:#dddddd;
-
-}
-
-
-#loading {
-
-    text-align:center;
-
-    margin-top:80px;
-
-    font-size:24px;
-
-    color:#aaa;
-
-}
-
-
-</style>
-
-
-<div id="toolbar">
-
-
-<input id="search"
-       placeholder="Search games..."/>
-
-
-</div>
-
-
-
-<div id="categories">
-
-<button class="category active"
-        data-category="All">
-All
-</button>
-
-
-</div>
-
-
-
-<div id="loading">
+<text id="status"
+      x="600"
+      y="430"
+      text-anchor="middle"
+      fill="#aaa"
+      font-size="25"
+      font-family="Arial">
 Loading Scalio...
-</div>
+</text>
 
 
 
-<div id="games"></div>
-
-
-</xhtml:div>
-
-</foreignObject>
-<script type="text/javascript">
+<script>
 <![CDATA[
 
-(async function(){
 
-const GAMES_JSON =
+const JSON_URL =
 "https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/refs/heads/main/games.json";
 
 
-const gamesContainer =
+const gamesLayer =
 document.getElementById("games");
 
-const loading =
-document.getElementById("loading");
 
-const search =
-document.getElementById("search");
-
-const categoryContainer =
+const categoryLayer =
 document.getElementById("categories");
 
 
+const status =
+document.getElementById("status");
+
+
+
 let games = [];
-let currentCategory = "All";
 
 
 
-async function loadGames(){
+fetch(JSON_URL)
 
-    try{
+.then(response=>response.json())
 
-        const response =
-        await fetch(GAMES_JSON);
-
-
-        if(!response.ok)
-            throw new Error("Failed loading games.json");
+.then(data=>{
 
 
-        const data =
-        await response.json();
+    games=data.games;
 
 
-        games =
-        data.games;
+    status.textContent="";
 
 
-        createCategories();
+    createCategories();
 
-        renderGames();
-
-
-        loading.style.display="none";
+    displayGames(games);
 
 
-    }
-    catch(error){
+})
 
-        loading.innerHTML =
-        "Unable to load games.";
 
-        console.error(error);
+.catch(err=>{
 
-    }
 
-}
+    status.textContent=
+    "Failed loading games";
+
+
+    console.error(err);
+
+
+});
 
 
 
 
 function createCategories(){
 
-    let categories =
-    [
+
+    let cats=[
         "All",
         ...new Set(
-            games.map(
-                game=>game.category
-            )
+            games.map(g=>g.category)
         )
     ];
 
 
-    categoryContainer.innerHTML="";
+
+    cats.forEach((cat,index)=>{
 
 
-    categories.forEach(category=>{
+        let y=
+        260+(index*55);
+
 
 
         let button =
-        document.createElement("button");
-
-
-        button.className =
-        "category";
-
-
-        if(category==="All")
-            button.classList.add("active");
-
-
-        button.innerText =
-        category;
-
-
-        button.dataset.category =
-        category;
-
-
-
-        button.onclick=function(){
-
-
-            document
-            .querySelectorAll(".category")
-            .forEach(btn=>
-                btn.classList.remove("active")
-            );
-
-
-            button.classList.add("active");
-
-
-            currentCategory =
-            category;
-
-
-            renderGames();
-
-
-        };
-
-
-        categoryContainer
-        .appendChild(button);
-
-
-    });
-
-}
-
-
-
-
-function renderGames(){
-
-
-    gamesContainer.innerHTML="";
-
-
-    let searchText =
-    search.value.toLowerCase();
-
-
-
-    let filtered =
-    games.filter(game=>{
-
-
-        let matchesSearch =
-        game.name
-        .toLowerCase()
-        .includes(searchText);
-
-
-
-        let matchesCategory =
-        currentCategory==="All"
-        ||
-        game.category===currentCategory;
-
-
-
-        return matchesSearch
-        &&
-        matchesCategory;
-
-
-    });
-
-
-
-    if(filtered.length===0){
-
-
-        gamesContainer.innerHTML =
-        "<h2>No games found</h2>";
-
-
-        return;
-
-    }
-
-
-
-    filtered.forEach(game=>{
-
-
-        let card =
-        document.createElement("div");
-
-
-        card.className =
-        "card";
-
-
-
-        card.innerHTML = `
-
-        <img
-        src="${game.icon}"
-        onerror="this.style.display='none'"
-        >
-
-
-        <h2>
-        ${game.name}
-        </h2>
-
-
-        <p>
-        ${game.description}
-        </p>
-
-
-        <button class="play">
-        Play
-        </button>
+        document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "g"
+        );
+
+
+
+        button.innerHTML=`
+
+        <rect
+        x="60"
+        y="${y-30}"
+        width="170"
+        height="40"
+        rx="20"
+        fill="#ffffff15"/>
+
+
+        <text
+        x="145"
+        y="${y}"
+        text-anchor="middle"
+        fill="white"
+        font-size="16"
+        font-family="Arial">
+        ${cat}
+        </text>
 
         `;
 
 
 
-        let play =
-        card.querySelector(".play");
+        button.onclick=()=>{
 
 
-        play.onclick=function(){
+            if(cat==="All")
+                displayGames(games);
 
+            else
 
-            launchGame(game.url);
+                displayGames(
+                    games.filter(
+                    g=>g.category===cat
+                    )
+                );
 
 
         };
 
 
 
-        gamesContainer
-        .appendChild(card);
+        categoryLayer.appendChild(button);
 
 
     });
@@ -581,156 +264,115 @@ function renderGames(){
 
 
 
-search.addEventListener(
-"input",
-renderGames
-);
 
+function displayGames(list){
 
 
-loadGames();
+    gamesLayer.innerHTML="";
 
 
 
-})();
+    list.forEach((game,index)=>{
 
 
-]]>
-</script>
-<script type="text/javascript">
-<![CDATA[
+        let x=
+        330+
+        ((index%3)*260);
 
-async function launchGame(url){
 
-    try{
 
+        let y=
+        260+
+        (Math.floor(index/3)*260);
 
-        const response =
-        await fetch(url);
 
 
-        if(!response.ok)
-            throw new Error("Game failed to load");
+        let card=
+        document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "g"
+        );
 
 
-        let html =
-        await response.text();
 
+        card.innerHTML=`
 
+        <rect
+        x="${x}"
+        y="${y}"
+        width="230"
+        height="220"
+        rx="25"
+        fill="url(#card)"/>
 
-        /*
-            Create a standalone game page.
 
-            The fetched game is placed inside
-            a complete HTML document so scripts,
-            canvas, CSS, and assets can run.
-        */
+        <text
+        x="${x+115}"
+        y="${y+40}"
+        text-anchor="middle"
+        fill="white"
+        font-size="20"
+        font-family="Arial"
+        font-weight="bold">
+        ${game.name}
+        </text>
 
-        const page = `
 
-<!DOCTYPE html>
+        <text
+        x="${x+115}"
+        y="${y+75}"
+        text-anchor="middle"
+        fill="#aaa"
+        font-size="14"
+        font-family="Arial">
+        ${game.category}
+        </text>
 
-<html>
 
-<head>
+        <rect
+        x="${x+35}"
+        y="${y+120}"
+        width="160"
+        height="45"
+        rx="22"
+        fill="white"/>
 
-<meta charset="UTF-8">
 
-<title>Scalio Game</title>
+        <text
+        x="${x+115}"
+        y="${y+150}"
+        text-anchor="middle"
+        fill="black"
+        font-size="16"
+        font-family="Arial">
+        PLAY
+        </text>
 
+        `;
 
-<style>
 
-html,body{
 
-    margin:0;
-    padding:0;
+        card.onclick=()=>{
 
-    width:100%;
-    height:100%;
 
-    overflow:hidden;
-
-    background:black;
-
-}
-
-
-iframe{
-
-    border:0;
-
-    width:100%;
-    height:100%;
-
-}
-
-
-</style>
-
-
-</head>
-
-
-<body>
-
-
-<iframe id="game"></iframe>
-
-
-
-<script>
-
-
-const frame =
-document.getElementById("game");
-
-
-frame.srcdoc =
-${JSON.stringify(html)};
-
-
-</script>
-
-
-</body>
-
-</html>
-
-`;
-
-
-
-        const dataURL =
-        "data:text/html;charset=utf-8,"
-        +
-        encodeURIComponent(page);
-
-
-
-        window.open(
-            dataURL,
+            window.open(
+            game.url,
             "_blank"
-        );
+            );
 
 
-    }
+        };
 
 
-    catch(error){
+
+        gamesLayer.appendChild(card);
 
 
-        alert(
-            "Unable to launch game"
-        );
+    });
 
-
-        console.error(error);
-
-
-    }
 
 }
+
 
 
 ]]>
