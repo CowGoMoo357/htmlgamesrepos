@@ -254,105 +254,105 @@ function createCategories(){
 
 function displayGames(list){
 
-
-    gamesLayer.innerHTML="";
-
+    gamesLayer.replaceChildren();
 
 
     list.forEach((game,index)=>{
 
 
-        let x=
-        330+
-        ((index%3)*260);
+        const ns =
+        "http://www.w3.org/2000/svg";
+
+
+        let group =
+        document.createElementNS(ns,"g");
+
+
+        let x =
+        330 + ((index % 3) * 260);
+
+
+        let y =
+        260 + (Math.floor(index / 3) * 260);
 
 
 
-        let y=
-        260+
-        (Math.floor(index/3)*260);
+        let rect =
+        document.createElementNS(ns,"rect");
+
+        rect.setAttribute("x",x);
+        rect.setAttribute("y",y);
+        rect.setAttribute("width","230");
+        rect.setAttribute("height","220");
+        rect.setAttribute("rx","25");
+        rect.setAttribute("fill","#222");
+
+        group.appendChild(rect);
 
 
 
-        let card=
-        document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "g"
-        );
+        let title =
+        document.createElementNS(ns,"text");
+
+        title.setAttribute("x",x+115);
+        title.setAttribute("y",y+40);
+        title.setAttribute("fill","white");
+        title.setAttribute("font-size","20");
+        title.setAttribute("text-anchor","middle");
+        title.textContent=game.name;
+
+
+        group.appendChild(title);
 
 
 
-        card.innerHTML=`
-
-        <rect
-        x="${x}"
-        y="${y}"
-        width="230"
-        height="220"
-        rx="25"
-        fill="url(#card)"/>
+        let category =
+        document.createElementNS(ns,"text");
 
 
-        <text
-        x="${x+115}"
-        y="${y+40}"
-        text-anchor="middle"
-        fill="white"
-        font-size="20"
-        font-family="Arial"
-        font-weight="bold">
-        ${game.name}
-        </text>
+        category.setAttribute("x",x+115);
+        category.setAttribute("y",y+75);
+        category.setAttribute("fill","#aaa");
+        category.setAttribute("font-size","14");
+        category.setAttribute("text-anchor","middle");
+
+        category.textContent=
+        game.category;
 
 
-        <text
-        x="${x+115}"
-        y="${y+75}"
-        text-anchor="middle"
-        fill="#aaa"
-        font-size="14"
-        font-family="Arial">
-        ${game.category}
-        </text>
-
-
-        <rect
-        x="${x+35}"
-        y="${y+120}"
-        width="160"
-        height="45"
-        rx="22"
-        fill="white"/>
-
-
-        <text
-        x="${x+115}"
-        y="${y+150}"
-        text-anchor="middle"
-        fill="black"
-        font-size="16"
-        font-family="Arial">
-        PLAY
-        </text>
-
-        `;
+        group.appendChild(category);
 
 
 
-        card.onclick=()=>{
+        let play =
+        document.createElementNS(ns,"text");
 
+
+        play.setAttribute("x",x+115);
+        play.setAttribute("y",y+150);
+        play.setAttribute("fill","white");
+        play.setAttribute("font-size","18");
+        play.setAttribute("text-anchor","middle");
+
+
+        play.textContent="PLAY";
+
+
+        group.appendChild(play);
+
+
+
+        group.onclick=()=>{
 
             window.open(
-            game.url,
-            "_blank"
+                game.url,
+                "_blank"
             );
-
 
         };
 
 
-
-        gamesLayer.appendChild(card);
+        gamesLayer.appendChild(group);
 
 
     });
