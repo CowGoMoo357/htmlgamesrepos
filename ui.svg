@@ -90,16 +90,26 @@ Categories
    clip-path="url(#gameArea)">
 </g>
 
+<!-- Search bar overlay -->
+
+<rect
+    x="300"
+    y="160"
+    width="850"
+    height="55"
+    rx="25"
+    fill="#ffffff15"/>
+
 
 <text
-    id="status"
-    x="600"
-    y="430"
-    text-anchor="middle"
+    x="350"
+    y="195"
     fill="#aaa"
-    font-size="25">
-Loading Scalio...
+    font-size="20">
+Search games...
 </text>
+
+     
 <script><![CDATA[
 
 console.log("Scalio started");
@@ -117,16 +127,12 @@ const categoryLayer =
 document.getElementById("categories");
 
 
-const status =
-document.getElementById("status");
-
-
-
 let games = [];
 
 let currentGames = [];
 
 let gameOffsetY = 0;
+
 
 
 
@@ -150,11 +156,7 @@ fetch(JSON_URL)
     currentGames = games;
 
 
-    status.remove();
-
-
     createCategories();
-
 
     displayGames(
         games
@@ -163,16 +165,12 @@ fetch(JSON_URL)
 
 })
 
+.catch(error => {
 
-.catch(error=>{
-
-
-    status.textContent =
-    "Games failed: " + error;
-
-
-    console.error(error);
-
+    console.error(
+        "Games failed:",
+        error
+    );
 
 });
 
@@ -191,7 +189,7 @@ function createCategories(){
 
         ...new Set(
             games.map(
-                game=>game.category
+                game => game.category
             )
         )
 
@@ -208,7 +206,7 @@ function createCategories(){
 
 
 
-        const y =
+        let y =
         260 + index * 55;
 
 
@@ -233,37 +231,30 @@ function createCategories(){
             "60"
         );
 
-
         rect.setAttribute(
             "y",
             y-30
         );
-
 
         rect.setAttribute(
             "width",
             "170"
         );
 
-
         rect.setAttribute(
             "height",
             "40"
         );
-
 
         rect.setAttribute(
             "rx",
             "20"
         );
 
-
         rect.setAttribute(
             "fill",
             "#ffffff15"
         );
-
-
 
 
 
@@ -279,24 +270,20 @@ function createCategories(){
             "145"
         );
 
-
         text.setAttribute(
             "y",
             y
         );
-
 
         text.setAttribute(
             "fill",
             "white"
         );
 
-
         text.setAttribute(
             "text-anchor",
             "middle"
         );
-
 
         text.setAttribute(
             "font-size",
@@ -312,7 +299,6 @@ function createCategories(){
         button.appendChild(rect);
 
         button.appendChild(text);
-
 
 
 
@@ -370,6 +356,7 @@ function createCategories(){
 
 
 
+
 function displayGames(list){
 
 
@@ -387,6 +374,8 @@ function displayGames(list){
         `translate(0 ${gameOffsetY})`
 
     );
+
+
 
 
 
@@ -409,13 +398,14 @@ function displayGames(list){
 
         let x =
         330 +
-        (index % 4) * 210;
+        (index % 4) * 200;
 
 
 
         let y =
         250 +
         Math.floor(index / 4) * 230;
+
 
 
 
@@ -433,30 +423,25 @@ function displayGames(list){
             x
         );
 
-
         card.setAttribute(
             "y",
             y
         );
-
 
         card.setAttribute(
             "width",
             "190"
         );
 
-
         card.setAttribute(
             "height",
             "210"
         );
 
-
         card.setAttribute(
             "rx",
             "25"
         );
-
 
         card.setAttribute(
             "fill",
@@ -472,46 +457,58 @@ function displayGames(list){
 
 
 
-        let icon =
-        document.createElementNS(
-            ns,
-            "image"
-        );
 
 
-        icon.setAttribute(
-            "x",
-            x+55
-        );
+        if(game.icon){
 
 
-        icon.setAttribute(
-            "y",
-            y+20
-        );
+            let icon =
+            document.createElementNS(
+                ns,
+                "image"
+            );
 
 
-        icon.setAttribute(
-            "width",
-            "80"
-        );
+            icon.setAttribute(
+                "x",
+                x+55
+            );
 
 
-        icon.setAttribute(
-            "height",
-            "80"
-        );
+            icon.setAttribute(
+                "y",
+                y+20
+            );
 
 
-        icon.setAttribute(
-            "href",
-            game.icon
-        );
+            icon.setAttribute(
+                "width",
+                "80"
+            );
 
 
-        group.appendChild(
-            icon
-        );
+            icon.setAttribute(
+                "height",
+                "80"
+            );
+
+
+
+            icon.setAttributeNS(
+                "http://www.w3.org/1999/xlink",
+                "href",
+                game.icon
+            );
+
+
+            group.appendChild(
+                icon
+            );
+
+
+        }
+
+
 
 
 
@@ -543,14 +540,14 @@ function displayGames(list){
 
 
         title.setAttribute(
-            "text-anchor",
-            "middle"
+            "font-size",
+            "18"
         );
 
 
         title.setAttribute(
-            "font-size",
-            "18"
+            "text-anchor",
+            "middle"
         );
 
 
@@ -562,6 +559,8 @@ function displayGames(list){
         group.appendChild(
             title
         );
+
+
 
 
 
@@ -593,6 +592,12 @@ function displayGames(list){
 
 
         cat.setAttribute(
+            "font-size",
+            "14"
+        );
+
+
+        cat.setAttribute(
             "text-anchor",
             "middle"
         );
@@ -611,11 +616,19 @@ function displayGames(list){
 
 
 
+
+        group.style.cursor =
+        "pointer";
+
+
+
         group.onclick = ()=>{
+
 
             launchGame(
                 game
             );
+
 
         };
 
@@ -636,6 +649,8 @@ function displayGames(list){
 
 
 
+
+
 function scrollGames(amount){
 
 
@@ -643,10 +658,22 @@ function scrollGames(amount){
 
 
 
-    let maxScroll =
-    -(Math.ceil(
+    let rows =
+    Math.ceil(
         currentGames.length / 4
-    ) * 230 - 520);
+    );
+
+
+
+    let maxScroll =
+    -(rows * 230 - 540);
+
+
+
+    if(maxScroll > 0)
+
+        maxScroll = 0;
+
 
 
 
@@ -656,9 +683,11 @@ function scrollGames(amount){
 
 
 
+
     if(gameOffsetY < maxScroll)
 
         gameOffsetY = maxScroll;
+
 
 
 
@@ -679,11 +708,12 @@ function scrollGames(amount){
 
 
 
+
 document.documentElement.addEventListener(
 
 "wheel",
 
-(event)=>{
+event=>{
 
 
     event.preventDefault();
@@ -705,50 +735,54 @@ document.documentElement.addEventListener(
 
 
 
+
+
+
+
 async function launchGame(game){
 
 
     console.log(
-        "Launching:",
+        "Launching",
         game.name
     );
 
 
 
-    const html = await fetch(
+    const html =
+    await fetch(
         game.url
     )
     .then(
-        response => response.text()
+        response =>
+        response.text()
     );
 
 
 
-    const oldWindow =
+
+
+    const old =
     document.getElementById(
         "gameWindow"
     );
 
 
-    if(oldWindow){
+    if(old)
 
-        oldWindow.remove();
-
-    }
+        old.remove();
 
 
 
-
-    const ns =
-    "http://www.w3.org/2000/svg";
 
 
 
     const fo =
     document.createElementNS(
-        ns,
+        "http://www.w3.org/2000/svg",
         "foreignObject"
     );
+
 
 
     fo.setAttribute(
@@ -782,11 +816,21 @@ async function launchGame(game){
 
 
 
+    fo.style.pointerEvents =
+    "all";
+
+
+
+
+
+
+
     const div =
     document.createElementNS(
         "http://www.w3.org/1999/xhtml",
         "div"
     );
+
 
 
     div.style.width =
@@ -797,13 +841,10 @@ async function launchGame(game){
     "100%";
 
 
-    div.style.background =
-    "#000";
-
-
-
     div.innerHTML =
     html;
+
+
 
 
 
@@ -812,15 +853,14 @@ async function launchGame(game){
     );
 
 
+
     document.documentElement.appendChild(
         fo
     );
 
 
 
-    /*
-       Re-run scripts inside games
-    */
+
 
     div.querySelectorAll(
         "script"
@@ -828,29 +868,27 @@ async function launchGame(game){
     .forEach(oldScript=>{
 
 
-        const newScript =
+        let script =
         document.createElement(
             "script"
         );
 
 
-        if(oldScript.src){
 
-            newScript.src =
+        if(oldScript.src)
+
+            script.src =
             oldScript.src;
 
-        }
+        else
 
-        else {
-
-            newScript.textContent =
+            script.textContent =
             oldScript.textContent;
 
-        }
 
 
         oldScript.replaceWith(
-            newScript
+            script
         );
 
 
