@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 1400 900">
+     viewBox="0 0 1400 900">
 
 <defs>
 
@@ -14,11 +14,8 @@ y2="1">
 
 </linearGradient>
 
-
-<filter id="glow">
-
-<feGaussianBlur stdDeviation="35"/>
-
+<filter id="blur">
+<feGaussianBlur stdDeviation="40"/>
 </filter>
 
 </defs>
@@ -29,14 +26,13 @@ height="900"
 fill="url(#bg)"/>
 
 
-
 <circle
 cx="300"
 cy="200"
 r="250"
 fill="#a6e3a1"
-opacity=".1"
-filter="url(#glow)"/>
+opacity=".12"
+filter="url(#blur)"/>
 
 
 
@@ -46,21 +42,18 @@ y="0"
 width="1400"
 height="900">
 
-
 <div xmlns="http://www.w3.org/1999/xhtml">
 
 
 <style>
 
 
-* {
-
+*{
 box-sizing:border-box;
-
 }
 
 
-body {
+body{
 
 margin:0;
 
@@ -75,16 +68,14 @@ color:#f5f5f7;
 }
 
 
-
-.container {
+.container{
 
 padding:55px;
 
 }
 
 
-
-.header {
+.header{
 
 display:flex;
 
@@ -95,8 +86,7 @@ align-items:center;
 }
 
 
-
-.logo {
+.logo{
 
 font-size:70px;
 
@@ -109,336 +99,198 @@ color:#a6e3a1;
 }
 
 
-
-.subtitle {
+.subtitle{
 
 color:#cdd6f4;
 
 opacity:.7;
 
-font-size:18px;
-
 }
 
 
 
-.search {
-
+.search{
 
 width:350px;
 
-
 padding:16px 22px;
-
 
 border-radius:20px;
 
-
 border:none;
-
 
 outline:none;
 
-
 background:
-
 rgba(255,255,255,.12);
-
-
-backdrop-filter:
-
-blur(20px);
-
 
 color:white;
 
-
 font-size:18px;
-
 
 }
 
 
 
-.hero {
+.hero{
 
+margin-top:40px;
 
-margin-top:45px;
-
-
-height:230px;
-
+height:220px;
 
 border-radius:35px;
 
-
 padding:40px;
 
-
 background:
-
-
 linear-gradient(
-
 135deg,
-
 #a6e3a1,
-
 #74c69d
-
 );
 
-
 color:#11111b;
-
 
 }
 
 
-
-.hero h1 {
+.hero h1{
 
 font-size:50px;
 
 margin:0;
 
-letter-spacing:-2px;
-
 }
 
 
 
-.hero p {
-
-font-size:20px;
-
-}
-
-
-
-.categories {
-
+.categories{
 
 display:flex;
 
-
 gap:15px;
-
 
 margin-top:35px;
 
-
 }
 
 
 
-.category {
-
-
-background:
-
-
-rgba(255,255,255,.12);
-
-
-border:
-
-
-1px solid rgba(255,255,255,.15);
-
-
-color:#f5f5f7;
-
-
-padding:
-
-12px 28px;
-
-
-border-radius:30px;
-
-
-font-weight:600;
-
-
-cursor:pointer;
-
-
-transition:.2s;
-
-
-backdrop-filter:
-
-blur(20px);
-
-
-}
-
-
-
-.category:hover {
-
-
-background:
-
-rgba(166,227,161,.3);
-
-
-transform:
-
-translateY(-4px);
-
-
-}
-
-
-
-.category.active {
-
-
-background:#a6e3a1;
-
-
-color:#11111b;
-
-
-}
-
-
-
-.games {
-
-
-margin-top:40px;
-
-
-display:grid;
-
-
-grid-template-columns:
-
-repeat(4,1fr);
-
-
-gap:20px;
-
-
-}
-
-
-
-.card {
-
-
-background:
-
-rgba(255,255,255,.08);
-
-
-border:
-
-1px solid rgba(255,255,255,.1);
-
-
-border-radius:25px;
-
-
-padding:25px;
-
-
-height:170px;
-
-
-color:#f5f5f7;
-
-
-transition:.25s;
-
-
-backdrop-filter:
-
-blur(20px);
-
-
-}
-
-
-
-.card:hover {
-
-
-transform:
-
-translateY(-8px);
-
-
-background:
-
-rgba(255,255,255,.15);
-
-
-}
-
-
-
-.card h2 {
-
-
-margin:0;
-
-
-color:#ffffff;
-
-
-font-size:22px;
-
-
-}
-
-
-
-.card p {
-
-
-color:#cdd6f4;
-
-
-}
-
-
-
-.play {
-
-
-margin-top:15px;
-
-
-padding:10px 25px;
-
+.category{
 
 border:none;
 
+padding:12px 28px;
 
-border-radius:15px;
+border-radius:30px;
 
+background:
+rgba(255,255,255,.12);
 
-background:#a6e3a1;
+color:#f5f5f7;
 
-
-color:#11111b;
-
-
-font-weight:700;
-
+font-weight:600;
 
 cursor:pointer;
 
+}
+
+
+
+.category.active{
+
+background:#a6e3a1;
+
+color:#11111b;
+
+}
+
+
+
+.games{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:20px;
+
+margin-top:40px;
+
+}
+
+
+
+.card{
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:25px;
+
+padding:25px;
+
+height:170px;
+
+color:white;
+
+transition:.2s;
+
+}
+
+
+
+.card:hover{
+
+transform:
+translateY(-8px);
+
+background:
+rgba(255,255,255,.15);
+
+}
+
+
+
+.card h2{
+
+margin:0;
+
+color:white;
+
+}
+
+
+
+.card p{
+
+color:#cdd6f4;
+
+}
+
+
+
+.play{
+
+background:#a6e3a1;
+
+color:#11111b;
+
+border:none;
+
+padding:10px 25px;
+
+border-radius:15px;
+
+font-weight:bold;
+
+cursor:pointer;
 
 }
 
 
 </style>
-
 
 
 
@@ -451,18 +303,13 @@ cursor:pointer;
 
 <div>
 
-
 <div class="logo">
-
 Scalio
-
 </div>
 
 
 <div class="subtitle">
-
 SVG Powered Game Arcade
-
 </div>
 
 
@@ -471,41 +318,27 @@ SVG Powered Game Arcade
 
 
 <input
-
-class="search"
-
 id="search"
-
-placeholder="Search games..."
-
-oninput="filterGames()"/>
+class="search"
+placeholder="Search games..."/>
 
 
 </div>
-
 
 
 
 
 <div class="hero">
 
-
 <h1>
-
 Play anything.
-
 </h1>
 
-
 <p>
-
-A beautiful game library powered by SVG.
-
+Your personal SVG game library.
 </p>
 
-
 </div>
-
 
 
 
@@ -513,43 +346,37 @@ A beautiful game library powered by SVG.
 <div class="categories">
 
 
-<div class="category active">
-
+<button class="category active"
+data-category="All">
 All
+</button>
 
-</div>
 
-
-<div class="category">
-
+<button class="category"
+data-category="Arcade">
 Arcade
+</button>
 
-</div>
 
-
-<div class="category">
-
+<button class="category"
+data-category="Action">
 Action
+</button>
 
-</div>
 
-
-<div class="category">
-
+<button class="category"
+data-category="Sports">
 Sports
+</button>
 
-</div>
 
-
-<div class="category">
-
+<button class="category"
+data-category="Horror">
 Horror
+</button>
+
 
 </div>
-
-
-</div>
-
 
 
 
@@ -562,10 +389,12 @@ Loading games...
 </div>
 
 
+</div>
 
 
 </div>
 
+</foreignObject>
 
 
 
@@ -575,41 +404,86 @@ Loading games...
 
 let games=[];
 
+let category="All";
 
-const gamesURL =
+
+const gamesURL=
 
 "https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json";
 
 
 
 
-fetch(gamesURL)
 
-.then(r=>r.json())
-
-.then(data=>{
+async function loadGames(){
 
 
-games=data.games;
+try{
 
 
-render(games);
-
-
-});
+let response =
+await fetch(gamesURL);
 
 
 
+let json =
+await response.json();
 
 
-function render(list){
+
+games=json.games;
 
 
-const box =
+
+render();
+
+
+}
+
+catch(e){
+
+
+document
+.getElementById("games")
+.innerHTML=
+
+"<div class='card'><h2>Unable to load games</h2></div>";
+
+
+}
+
+
+}
+
+
+
+
+
+function render(){
+
+
+let box =
 document.getElementById("games");
 
 
 box.innerHTML="";
+
+
+
+let list=games;
+
+
+
+if(category!=="All"){
+
+
+list =
+games.filter(
+g=>g.category===category
+);
+
+
+}
 
 
 
@@ -628,14 +502,157 @@ card.innerHTML=
 
 `
 
-<h2>${game.name}</h2>
+<h2>
+${game.name}
+</h2>
 
-<p>${game.category || "Game"}</p>
+<p>
+${game.category}
+</p>
 
 <button class="play">
-
 Play
+</button>
 
+`;
+
+
+
+card
+.querySelector(".play")
+.onclick=function(){
+
+
+fetch(game.url)
+
+.then(r=>r.text())
+
+.then(html=>{
+
+
+let tab =
+window.open();
+
+
+tab.document.open();
+
+tab.document.write(html);
+
+tab.document.close();
+
+
+});
+
+
+};
+
+
+
+box.appendChild(card);
+
+
+
+});
+
+
+}
+
+
+
+
+
+document
+.querySelectorAll(".category")
+.forEach(btn=>{
+
+
+btn.onclick=function(){
+
+
+document
+.querySelectorAll(".category")
+.forEach(x=>
+x.classList.remove("active")
+);
+
+
+
+btn.classList.add("active");
+
+
+category =
+btn.dataset.category;
+
+
+render();
+
+
+};
+
+
+});
+
+
+
+
+
+
+document
+.getElementById("search")
+.oninput=function(){
+
+
+let q =
+this.value.toLowerCase();
+
+
+
+let old =
+category;
+
+
+category="All";
+
+
+
+let filtered =
+games.filter(
+g=>
+g.name
+.toLowerCase()
+.includes(q)
+);
+
+
+
+let box =
+document.getElementById("games");
+
+
+box.innerHTML="";
+
+
+
+filtered.forEach(game=>{
+
+
+let card =
+document.createElement("div");
+
+
+card.className="card";
+
+
+card.innerHTML=
+
+`
+
+<h2>${game.name}</h2>
+
+<p>${game.category}</p>
+
+<button class="play">
+Play
 </button>
 
 `;
@@ -647,17 +664,13 @@ card.querySelector(".play")
 
 
 fetch(game.url)
-
 .then(r=>r.text())
-
-.then(code=>{
-
-
-let tab =
-window.open();
+.then(html=>{
 
 
-tab.document.write(code);
+let w=window.open();
+
+w.document.write(html);
 
 
 });
@@ -673,49 +686,15 @@ box.appendChild(card);
 });
 
 
-}
+
+};
 
 
 
-
-
-function filterGames(){
-
-
-let q =
-document
-.getElementById("search")
-.value
-.toLowerCase();
-
-
-
-render(
-
-games.filter(
-
-g=>
-
-g.name
-.toLowerCase()
-.includes(q)
-
-)
-
-);
-
-
-}
-
+loadGames();
 
 
 ]]></script>
-
-
-</div>
-
-
-</foreignObject>
 
 
 </svg>
