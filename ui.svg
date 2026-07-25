@@ -108,18 +108,13 @@ Search games...
 
 
 
-<script>
-<![CDATA[
-     
-console.log("Scalio script started");
+<script><![CDATA[
 
-const JSON_URL =
-"https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/refs/heads/main/games.json";
+console.log("Scalio started");
 
 
 const gamesLayer =
 document.getElementById("games");
-
 
 const categoryLayer =
 document.getElementById("categories");
@@ -129,25 +124,29 @@ let games = [];
 
 
 
-fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.json")
-.then(r => r.json())
+fetch("games.json")
+
+.then(response => response.json())
+
 .then(data => {
 
-    console.log("JSON:", data);
-
     games = data.games;
-
 
     createCategories();
 
     displayGames(games);
 
 })
+
 .catch(error => {
 
-    console.error(error);
+    console.error(
+        "Games failed:",
+        error
+    );
 
 });
+
 
 
 
@@ -155,80 +154,138 @@ fetch("https://raw.githubusercontent.com/CowGoMoo357/htmlgamesrepos/main/games.j
 function createCategories(){
 
 
-    let cats=[
+    const categories = [
         "All",
         ...new Set(
-            games.map(g=>g.category)
+            games.map(
+                g=>g.category
+            )
         )
     ];
 
 
 
-    cats.forEach((cat,index)=>{
+    categories.forEach(
+    (cat,index)=>{
 
 
-        let y=
-        260+(index*55);
+        const ns =
+        "http://www.w3.org/2000/svg";
+
+
+        let y =
+        260 + index * 55;
 
 
 
         let button =
         document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "g"
+            ns,
+            "g"
+        );
+
+
+        let rect =
+        document.createElementNS(
+            ns,
+            "rect"
+        );
+
+
+        rect.setAttribute(
+            "x",
+            "60"
+        );
+
+        rect.setAttribute(
+            "y",
+            y-30
+        );
+
+        rect.setAttribute(
+            "width",
+            "170"
+        );
+
+        rect.setAttribute(
+            "height",
+            "40"
+        );
+
+        rect.setAttribute(
+            "rx",
+            "20"
+        );
+
+        rect.setAttribute(
+            "fill",
+            "#ffffff15"
         );
 
 
 
-        button.innerHTML=`
-
-        <rect
-        x="60"
-        y="${y-30}"
-        width="170"
-        height="40"
-        rx="20"
-        fill="#ffffff15"/>
+        let text =
+        document.createElementNS(
+            ns,
+            "text"
+        );
 
 
-        <text
-        x="145"
-        y="${y}"
-        text-anchor="middle"
-        fill="white"
-        font-size="16"
-        font-family="Arial">
-        ${cat}
-        </text>
+        text.setAttribute(
+            "x",
+            "145"
+        );
 
-        `;
+        text.setAttribute(
+            "y",
+            y
+        );
+
+        text.setAttribute(
+            "fill",
+            "white"
+        );
+
+        text.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+        text.setAttribute(
+            "font-size",
+            "16"
+        );
+
+
+        text.textContent =
+        cat;
+
+
+
+        button.appendChild(rect);
+        button.appendChild(text);
 
 
 
         button.onclick=()=>{
 
-
             if(cat==="All")
                 displayGames(games);
 
             else
-
                 displayGames(
                     games.filter(
-                    g=>g.category===cat
+                        g=>g.category===cat
                     )
                 );
 
-
         };
-
 
 
         categoryLayer.appendChild(button);
 
 
     });
-
 
 }
 
@@ -238,261 +295,243 @@ function createCategories(){
 
 function displayGames(list){
 
+
     gamesLayer.replaceChildren();
 
 
-    list.forEach((game,index)=>{
+
+    list.forEach(
+    (game,index)=>{
 
 
         const ns =
         "http://www.w3.org/2000/svg";
 
 
+
         let group =
-        document.createElementNS(ns,"g");
+        document.createElementNS(
+            ns,
+            "g"
+        );
 
 
         let x =
-        330 + ((index % 3) * 260);
+        330 + 
+        (index%3)*260;
 
 
         let y =
-        260 + (Math.floor(index / 3) * 260);
+        250 +
+        Math.floor(index/3)*260;
 
 
 
-        let rect =
-        document.createElementNS(ns,"rect");
 
-        rect.setAttribute("x",x);
-        rect.setAttribute("y",y);
-        rect.setAttribute("width","230");
-        rect.setAttribute("height","220");
-        rect.setAttribute("rx","25");
-        rect.setAttribute("fill","#222");
+        // Card
 
-        group.appendChild(rect);
+        let card =
+        document.createElementNS(
+            ns,
+            "rect"
+        );
+
+
+        card.setAttribute(
+            "x",
+            x
+        );
+
+        card.setAttribute(
+            "y",
+            y
+        );
+
+        card.setAttribute(
+            "width",
+            "230"
+        );
+
+        card.setAttribute(
+            "height",
+            "220"
+        );
+
+        card.setAttribute(
+            "rx",
+            "28"
+        );
+
+        card.setAttribute(
+            "fill",
+            "#ffffff15"
+        );
+
+
+        group.appendChild(card);
+
+
+
+
+
+        // Icon
+
 
         let icon =
-        let icon =
-        document.createElementNS(ns,"image");
+        document.createElementNS(
+            ns,
+            "image"
+        );
 
-     icon.setAttribute(
-         "x",
-         x+65
-     );
-     
-     icon.setAttribute(
-         "y",
-         y+85
-     );
-     
-     icon.setAttribute(
-         "width",
-         "100"
-     );
-     
-     icon.setAttribute(
-         "height",
-         "60"
-     );
-     
-     
-     icon.setAttribute(
-         "href",
-         "https://raw.githubusercontent.com/CowGoMoo357/games/refs/heads/main/" + game.icon
-     );
-     
-     
-     group.appendChild(icon);
+
+        icon.setAttribute(
+            "x",
+            x+75
+        );
+
+        icon.setAttribute(
+            "y",
+            y+20
+        );
+
+        icon.setAttribute(
+            "width",
+            "80"
+        );
+
+        icon.setAttribute(
+            "height",
+            "80"
+        );
+
+
+        icon.setAttribute(
+            "href",
+            game.icon
+        );
+
+
+        group.appendChild(icon);
+
+
+
+
+
+
+        // Title
+
 
         let title =
-        document.createElementNS(ns,"text");
+        document.createElementNS(
+            ns,
+            "text"
+        );
 
-        title.setAttribute("x",x+115);
-        title.setAttribute("y",y+40);
-        title.setAttribute("fill","white");
-        title.setAttribute("font-size","20");
-        title.setAttribute("text-anchor","middle");
-        title.textContent=game.name;
+
+        title.setAttribute(
+            "x",
+            x+115
+        );
+
+        title.setAttribute(
+            "y",
+            y+130
+        );
+
+
+        title.setAttribute(
+            "fill",
+            "white"
+        );
+
+
+        title.setAttribute(
+            "font-size",
+            "18"
+        );
+
+
+        title.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+
+        title.textContent =
+        game.name;
+
 
 
         group.appendChild(title);
 
 
 
+
+
+
+        // Category
+
+
         let category =
-        document.createElementNS(ns,"text");
+        document.createElementNS(
+            ns,
+            "text"
+        );
 
 
-        category.setAttribute("x",x+115);
-        category.setAttribute("y",y+75);
-        category.setAttribute("fill","#aaa");
-        category.setAttribute("font-size","14");
-        category.setAttribute("text-anchor","middle");
+        category.setAttribute(
+            "x",
+            x+115
+        );
 
-        category.textContent=
+        category.setAttribute(
+            "y",
+            y+160
+        );
+
+
+        category.setAttribute(
+            "fill",
+            "#aaa"
+        );
+
+
+        category.setAttribute(
+            "font-size",
+            "14"
+        );
+
+
+        category.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+
+        category.textContent =
         game.category;
+
 
 
         group.appendChild(category);
 
 
 
-        let play =
-        document.createElementNS(ns,"text");
-
-
-        play.setAttribute("x",x+115);
-        play.setAttribute("y",y+150);
-        play.setAttribute("fill","white");
-        play.setAttribute("font-size","18");
-        play.setAttribute("text-anchor","middle");
-
-
-        play.textContent="PLAY";
-
-
-        group.appendChild(play);
 
 
 
-        group.onclick = async () => {
 
-    try {
+        group.onclick=()=>{
 
-        const response =
-        await fetch(game.url);
+            launchGame(game);
 
-
-        const html =
-        await response.text();
-
-
-        const ns =
-        "http://www.w3.org/2000/svg";
-
-
-        // Remove old game window
-        const old =
-        document.getElementById("gameWindow");
-
-        if(old)
-            old.remove();
+        };
 
 
 
-        // Create foreignObject
-        const fo =
-        document.createElementNS(
-            ns,
-            "foreignObject"
+        gamesLayer.appendChild(
+            group
         );
-
-
-        fo.setAttribute(
-            "id",
-            "gameWindow"
-        );
-
-
-        fo.setAttribute(
-            "x",
-            "300"
-        );
-
-        fo.setAttribute(
-            "y",
-            "100"
-        );
-
-        fo.setAttribute(
-            "width",
-            "850"
-        );
-
-        fo.setAttribute(
-            "height",
-            "650"
-        );
-
-
-
-        // Create HTML container
-        const div =
-        document.createElementNS(
-            "http://www.w3.org/1999/xhtml",
-            "div"
-        );
-
-
-        div.style.width="100%";
-        div.style.height="100%";
-
-
-        div.innerHTML = html;
-
-
-
-        fo.appendChild(div);
-
-
-        document.documentElement
-        .appendChild(fo);
-
-
-
-        // Re-run scripts
-        const scripts =
-        div.querySelectorAll("script");
-
-
-        scripts.forEach(oldScript=>{
-
-
-            const newScript =
-            document.createElement("script");
-
-
-            for(
-                const attr of oldScript.attributes
-            ){
-
-                newScript.setAttribute(
-                    attr.name,
-                    attr.value
-                );
-
-            }
-
-
-            newScript.textContent =
-            oldScript.textContent;
-
-
-            oldScript.replaceWith(
-                newScript
-            );
-
-
-        });
-
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Game failed:",
-            error
-        );
-
-    }
-
-};
-
-
-        gamesLayer.appendChild(group);
 
 
     });
@@ -502,8 +541,129 @@ function displayGames(list){
 
 
 
-]]>
-</script>
+
+
+
+
+async function launchGame(game){
+
+
+    const html =
+    await fetch(game.url)
+    .then(
+        r=>r.text()
+    );
+
+
+
+    const old =
+    document.getElementById(
+        "gameWindow"
+    );
+
+
+    if(old)
+        old.remove();
+
+
+
+
+    const fo =
+    document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "foreignObject"
+    );
+
+
+    fo.setAttribute(
+        "id",
+        "gameWindow"
+    );
+
+
+    fo.setAttribute(
+        "x",
+        "300"
+    );
+
+
+    fo.setAttribute(
+        "y",
+        "120"
+    );
+
+
+    fo.setAttribute(
+        "width",
+        "850"
+    );
+
+
+    fo.setAttribute(
+        "height",
+        "650"
+    );
+
+
+
+
+
+    const div =
+    document.createElementNS(
+        "http://www.w3.org/1999/xhtml",
+        "div"
+    );
+
+
+    div.style.width="100%";
+    div.style.height="100%";
+
+
+    div.innerHTML =
+    html;
+
+
+
+
+    fo.appendChild(div);
+
+
+    document.documentElement
+    .appendChild(fo);
+
+
+
+
+
+    // rerun scripts
+
+    div.querySelectorAll("script")
+    .forEach(oldScript=>{
+
+
+        let script =
+        document.createElement(
+            "script"
+        );
+
+
+        script.textContent =
+        oldScript.textContent;
+
+
+        oldScript.replaceWith(
+            script
+        );
+
+
+    });
+
+
+}
+
+
+
+]]></script>
 
 
 </svg>
