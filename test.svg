@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="500"
+height="500">
+
+<rect width="500" height="500" fill="black"/>
+
+<text x="50" y="100"
+fill="white"
+font-size="40">
+SVG TEST
+</text>
+
+<script><![CDATA[
+
+alert("SCRIPT EXECUTED");
+
+]]></script>
+
+</svg>
